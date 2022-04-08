@@ -7,10 +7,10 @@ public class Movement : MonoBehaviour
     void Update()
     {
         // movement direction
-        var movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        var movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
         transform.position += movement * Speed * Time.deltaTime;
         
-        if (movement == Vector3.zero)
+        if (movement.magnitude == 0)
         {
             return;
         }
